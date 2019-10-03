@@ -7,6 +7,14 @@ html, body {
     width: 100%;
 }
 
+body {
+    background-image: url("https://user-images.githubusercontent.com/53489910/66153915-ec992900-e60b-11e9-9726-a309a35319dd.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 /* HOMEPAGE */
 div.wrapper {
     height: 100%;
@@ -22,16 +30,33 @@ div.searchBarHolder {
     left: 50%;
     top: 50%;
     margin-top: -75px;
-    margin-left: -250px;
-    border: 1px solid black;
+    margin-left: -300px;
 }
 
 #songLyric {
     width: 500px;
     height: 70px;
     font-size: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: solid 1px gray;
+    border-bottom: solid 1px gray;
+    text-align: right;
+    box-shadow: 2.5px 5px rgba(0, 0, 0, 0.25);
+    background-color: transparent;
 }
 
 #songLyric::placeholder {
     text-align: right;
+}
+
+button.submitButton {
+    padding: 20px 40px;
+    margin-top: 10px;
+}
+
+button.filterButton {
+    padding: 20px 40px;
+    margin-top: 10px;
+    margin-left: 250px;
 }
