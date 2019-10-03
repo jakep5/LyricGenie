@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+/* HOMEPAGE */
+div.wrapper {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+div.searchBarHolder {
+    display: block;
+    height: 150px;
+    width: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -75px;
+    margin-left: -250px;
+    border: 1px solid black;
+}
+
+#songLyric {
+    width: 500px;
+    height: 70px;
+    font-size: 30px;
+}
+
+#songLyric::placeholder {
+    text-align: right;
+}
