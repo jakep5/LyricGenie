@@ -1,5 +1,7 @@
-const myApiKey = '9c926ea14e70b0a8a01451f9b1e9a4c2';
-const baseUrl = 'https://api.audd.io/findLyrics/'
+const auddKey = '9c926ea14e70b0a8a01451f9b1e9a4c2';
+const baseUrlAudd = 'https://api.audd.io/findLyrics/'
+
+const youtubeKey = 'AIzaSyCyroCucfStpe8Q9K1Low1zhSXsFAtHE9M'
 
 
 /* EVENT LISTENERS */
@@ -48,11 +50,11 @@ function getLyrics(snippet) {
     const params = {
         q: snippet,
         /* s_artist_rating: 'DESC', */
-        api_token: myApiKey,
+        api_token: auddKey,
         /* format:"jsonp", */
     }
     const queryString = constUrl(params)
-    const url = baseUrl + '?' + queryString;
+    const url = baseUrlAudd + '?' + queryString;
     console.log(url);
     fetch (url)
         .then (response => {
@@ -64,6 +66,7 @@ function getLyrics(snippet) {
             }
             })
         .then (responseJson => generateResults(responseJson))
+        .then (responseJson => getWikiLinks(reponseJson))
        /*  .then (responseJson => createLyricsSnippet(responseJson)) */
         .catch(err => {
             $('#js-error-message').text(`Something went wrong: ${err.message}`);
@@ -71,16 +74,19 @@ function getLyrics(snippet) {
     };
 //
 
-/* LYRICS SNIPPET CREATOR */
-/* function createLyricsSnippet(responseJson) {
-    const lyricArray = [];
-    for (let i=0; i<(responseJson.result).length;i++){
+/* GET YOUTUBE LINKS */
 
-
+function getYoutubeLink (resultsJson) {
+    const youtubeLinks= [];
+    for (let i = 0; i<resultsJson.result.length; i++) {
+        fetch ('https://www.googleapis.com/youtube/v3')
     }
-} */
+
+}
+
+
 /* MANIPULATE DOM */
-function generateResults(responseJson) {
+function generateResults(responseJson, youtubeLinks) {
     console.log(responseJson);
     $("div.resultsHolder").toggleClass("hidden");
     $("button.returnButton").toggleClass("hidden");
@@ -100,7 +106,6 @@ function generateResults(responseJson) {
 
 
 $(function () {
-  /*   watchButton(); */
     watchSubmit();
     watchFilter();
     watchFilterSelect();
