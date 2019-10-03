@@ -20,6 +20,7 @@ div.wrapper {
     height: 100%;
     width: 100%;
     text-align: center;
+    position: relative;
 }
 
 div.searchBarHolder {
@@ -27,14 +28,23 @@ div.searchBarHolder {
     height: 150px;
     width: 500px;
     position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-top: -75px;
-    margin-left: -300px;
+    left: 7%;
+    top: 30%;
 }
 
+div.filterDisplay {
+    display: block;
+    height: 400px;
+    width: 150px;
+    border: 1px solid black;
+    position: absolute;
+    top: 95%;
+    left: 47%;
+}
+
+
 #songLyric {
-    width: 500px;
+    width: 600px;
     height: 70px;
     font-size: 30px;
     border-top: none;
@@ -60,3 +70,14 @@ button.filterButton {
     margin-top: 10px;
     margin-left: 250px;
 }
+
+div.hidden {
+    display: none;
+}
+
+ul.filtersList {
+    margin: 0;
+    list-style: none;
+    float: left;
+}
+
