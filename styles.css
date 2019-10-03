@@ -81,3 +81,18 @@ ul.filtersList {
     float: left;
 }
 
+/* RESULTS PAGE */
+div.resultsHolder {
+    position:relative;
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+}
+
+div.resultsItem {
+    position: absolute;
+    left: 3%;
+    height: 300px;
+    width: 70%;
+    padding-bottom: 10px;
+}

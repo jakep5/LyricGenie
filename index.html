@@ -11,8 +11,8 @@
                 <form id="lyricForm">
                     <input id="songLyric" type="text" placeholder="song lyric snippet..."></label>
                 </form>
-                <button name="filter" class="filterButton" form="lyricForm">Filters</button>
-                <button name="submit" class="submitButton">Submit</button>
+                <button name="filter" class="filterButton">Filters</button>
+                <button name="submit" form="lyricForm" class="submitButton">Submit</button>
             <div class="filterDisplay hidden" role="holdFilter">
                 <ul class="filtersList">
                     <li class="filter" id="filter1"><input class="checkbox" type="checkbox"> checkbox 1</li>
@@ -21,8 +21,10 @@
                     <li class="filter" id="filter4"><input class="checkbox" type="checkbox"> checkbox 4</li>
                 </ul>
             </div>
-            
             </div>
+            <!-- <div class="resultsHolder" role="holdResults">
+
+            </div> -->
         </div>
     </body>
 </html>
