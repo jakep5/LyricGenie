@@ -23,7 +23,15 @@ function watchFilter () {
 }
 
 function watchFilterSelect() {
+}
 
+function watchReturnButton() {
+    $("div.wrapper").on('click','button.returnButton', function(){
+        $("div.resultsHolder").empty();
+        $('button.returnButton').toggleClass('hidden');
+        $("div.resultsHolder").toggleClass('hidden');
+        $("div.searchBarHolder").toggleClass('hidden');
+    })
 }
 //
 
@@ -72,8 +80,10 @@ function getLyrics(snippet) {
     }
 } */
 /* MANIPULATE DOM */
-function generateResults(responseJson, lyricArray) {
+function generateResults(responseJson) {
     console.log(responseJson);
+    $("div.resultsHolder").toggleClass("hidden");
+    $("button.returnButton").toggleClass("hidden");
     $("div.resultsHolder").empty();
     $("div.searchBarHolder").toggleClass("hidden");
     for (let i = 0; i<(responseJson.result).length;i++) {
@@ -85,18 +95,15 @@ function generateResults(responseJson, lyricArray) {
                 <button class="resultsButton wiki">Artist Wiki</button>
             </div>
         `)
-}
+    }
+};
 
-
-
-
-
-}
 
 $(function () {
   /*   watchButton(); */
     watchSubmit();
     watchFilter();
     watchFilterSelect();
+    watchReturnButton();
     console.log('Ready! Waiting for submit.');
 })  
