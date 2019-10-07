@@ -1,7 +1,7 @@
 const auddKey = '9c926ea14e70b0a8a01451f9b1e9a4c2';
 const baseUrlAudd = 'https://api.audd.io/findLyrics/'
 
-const youtubeKey = 'AIzaSyCyroCucfStpe8Q9K1Low1zhSXsFAtHE9M'
+const youtubeKey = 'AIAIzaSyDc6rGhs8xLlq7WcgU3eTae0i-bT5kJRxs'
 
 
 /* EVENT LISTENERS */
@@ -42,68 +42,100 @@ function constUrl (params) {
     const queryItems = Object.keys(params)
         .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     return queryItems.join('&'); //==>queryItems.join == queryString
-}
+};
 //
 
 /* GET FUNCTION */
 function getLyrics(snippet) {
     const params = {
         q: snippet,
-        /* s_artist_rating: 'DESC', */
+        s_artist_rating: 'DESC',
         api_token: auddKey,
         /* format:"jsonp", */
     }
-    const queryString = constUrl(params)
-    const url = baseUrlAudd + '?' + queryString;
+    const queryString = constUrl(params);
+    const url = baseUrlAudd + '?' + queryString + '&return=spotify';
     console.log(url);
     fetch (url)
         .then (response => {
             if (response.ok) {
-                return response.json();
+                let lyricObject = response.json();
+                return lyricObject;
             }
             else {
                 throw new Error(response.statusText);
             }
             })
-        .then (responseJson => generateResults(responseJson))
-        .then (responseJson => getWikiLinks(reponseJson))
-       /*  .then (responseJson => createLyricsSnippet(responseJson)) */
+        .then (lyricObject => createLyricsSnippet(lyricObject, snippet))
         .catch(err => {
             $('#js-error-message').text(`Something went wrong: ${err.message}`);
         })
-    };
-//
+};
 
-/* GET YOUTUBE LINKS */
 
-function getYoutubeLink (resultsJson) {
-    const youtubeLinks= [];
-    for (let i = 0; i<resultsJson.result.length; i++) {
-        fetch ('https://www.googleapis.com/youtube/v3')
+/* CREATE LYRIC SNIPPET */
+function createLyricsSnippet(lyricObject, snippet) {
+    const snippetArray = [];
+    for (let i = 0; i<(lyricObject.result).length;i++) {
+        index = (lyricObject.result[i].lyrics).indexOf(snippet)
+        if(index >= 0)
+        {
+            var _ws = [" ","\t"]
+
+            var whitespace = 0
+            var rightLimit = 0
+            var leftLimit = 0
+
+            // right trim index
+            for(rightLimit = index + snippet.length; whitespace < -2; rightLimit++)
+            {
+                if(rightLimit >= (lyricObject.result[i].lyrics).length){break}
+                if(_ws.indexOf((lyricObject.result[i].lyrics).charAt(rightLimit)) >= 0){whitespace += 1}
+            }
+
+            whitespace = 0
+            // left trim index
+            for(leftLimit = index; whitespace < 6; leftLimit--)
+            {
+                if(leftLimit < 0){break}
+                if(_ws.indexOf((lyricObject.result[i].lyrics).charAt(leftLimit)) >= 0){whitespace += 1}
+            }
+            snippetArray.push((lyricObject.result[i].lyrics).substr(leftLimit + 1, rightLimit)) // return match
+        }
     }
-
+    generateResults(lyricObject, snippetArray);
 }
+    
+
+/* function generateLinks (lyricObject, snippetArray) {
+    console.log(lyricObject)
+    for (let i=0; i<(lyricObject.result).length; i++) {
+        let indexLink = ((lyricObject.result[i].media).indexOf('youtube.com') - 11);
+        (lyricObject.result[i].media).splice
+    }
+} */
+
 
 
 /* MANIPULATE DOM */
-function generateResults(responseJson, youtubeLinks) {
-    console.log(responseJson);
+function generateResults(lyricObject, snippetArray) {
+    console.log(snippetArray);
+    console.log(lyricObject);
     $("div.resultsHolder").toggleClass("hidden");
     $("button.returnButton").toggleClass("hidden");
     $("div.resultsHolder").empty();
     $("div.searchBarHolder").toggleClass("hidden");
-    for (let i = 0; i<(responseJson.result).length;i++) {
+    for (let i = 0; i<(lyricObject.result).length;i++) {
         $("div.resultsHolder").append(`
             <div class="resultItem">
-                <h1 class="songTitleHeader">Song title: ${responseJson.result[i].full_title}</h1>
-                <button class="resultsButton spotify">Spotify</button>
-                <button class="resultsButton youtube">YouTube</button>
-                <button class="resultsButton wiki">Artist Wiki</button>
+                <h1 class="songTitleHeader">Song title: ${lyricObject.result[i].full_title}</h1>
+                <a href=${lyricObject.result[i].media[1].url}>YouTube</a>
+                <h2 class="songSnippet">"...${snippetArray[i]}..."</h2>
             </div>
         `)
+        console.log(Object.keys(lyricObject.result[i].media[1]));
     }
 };
-
 
 $(function () {
     watchSubmit();
@@ -111,4 +143,4 @@ $(function () {
     watchFilterSelect();
     watchReturnButton();
     console.log('Ready! Waiting for submit.');
-})  
+}); 
