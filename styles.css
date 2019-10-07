@@ -54,6 +54,9 @@ div.filterDisplay {
     text-align: right;
     box-shadow: 2.5px 5px rgba(0, 0, 0, 0.25);
     background-color: transparent;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: rgb(87, 85, 85);
+
 }
 
 #songLyric::placeholder {
@@ -63,12 +66,17 @@ div.filterDisplay {
 button.submitButton {
     padding: 20px 40px;
     margin-top: 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    margin-left: 93%;
 }
 
 button.filterButton {
     padding: 20px 40px;
     margin-top: 10px;
     margin-left: 250px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
 }
 
 div.hidden {
@@ -106,6 +114,18 @@ button.returnButton {
     margin-left: -85%;
 }
 
+h1.title {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 40px;
+    color: rgb(59, 59, 59);
+}
+
+h1.songTitleHeader {
+    font-family: 'Oxygen', sans-serif;
+}
+
 h2 {
-    font-size: 6px;
+    font-size: 13px;
+    color: rgb(80, 80, 80);
+    font-family: 'Source Sans Pro', sans-serif;
 }

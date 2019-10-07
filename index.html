@@ -4,14 +4,18 @@
         <link rel="stylesheet" href="styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="index.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Oxygen|Source+Sans+Pro&display=swap" rel="stylesheet">
+
     </head>
     <body>
         <div class="wrapper" role="homescreenWrapper">
+            <div class="title" role="titleHolder">
+                <h1 class="title">LyricGenie</h1>
+            </div>
             <div class="searchBarHolder" role="searchBarHolder">
-                <form id="lyricForm">
+                <form id="lyricForm" autocomplete="off">
                     <input id="songLyric" type="text" placeholder="song lyric snippet..."></label>
                 </form>
-                <button name="filter" class="filterButton">Filters</button>
                 <button name="submit" form="lyricForm" class="submitButton">Submit</button>
             <div class="filterDisplay hidden" role="holdFilter">
                 <ul class="filtersList">
