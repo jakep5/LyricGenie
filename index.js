@@ -10,6 +10,8 @@ const youtubeKey = 'AIAIzaSyDc6rGhs8xLlq7WcgU3eTae0i-bT5kJRxs'
         $("form").submit();
     })
 } */
+
+
 function watchSubmit (){
     $("form").submit(function(e) {
         e.preventDefault();
@@ -33,6 +35,7 @@ function watchReturnButton() {
         $('button.returnButton').toggleClass('hidden');
         $("div.resultsHolder").toggleClass('hidden');
         $("div.searchBarHolder").toggleClass('hidden');
+        $("div.title").toggleClass('hidden');
     })
 }
 //
@@ -125,6 +128,7 @@ function generateResults(lyricObject, snippetArray) {
     $("button.returnButton").toggleClass("hidden");
     $("div.resultsHolder").empty();
     $("div.searchBarHolder").toggleClass("hidden");
+    $("div.title").toggleClass("hidden");
     for (let i = 0; i<(lyricObject.result).length;i++) {
         $("div.resultsHolder").append(`
             <div class="resultItem">
@@ -136,6 +140,8 @@ function generateResults(lyricObject, snippetArray) {
         console.log(Object.keys(lyricObject.result[i].media[1]));
     }
 };
+
+
 
 $(function () {
     watchSubmit();

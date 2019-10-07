@@ -15,7 +15,17 @@ body {
     background-attachment: fixed;
 }
 
+/* SEARCH BAR */ 
+
+
 /* HOMEPAGE */
+
+div.title {
+    display: inline-block;
+    height: 100px;
+    width: 500px;
+    margin-left: -50%;
+}
 div.wrapper {
     height: 100%;
     width: 100%;
@@ -29,7 +39,7 @@ div.searchBarHolder {
     width: 500px;
     position: absolute;
     left: 7%;
-    top: 30%;
+    top: 40%;
 }
 
 div.filterDisplay {
@@ -56,11 +66,14 @@ div.filterDisplay {
     background-color: transparent;
     font-family: 'Source Sans Pro', sans-serif;
     color: rgb(87, 85, 85);
+    outline-width: 0;
+    padding-right: 5px;
 
 }
 
 #songLyric::placeholder {
     text-align: right;
+    padding-right: 5px;
 }
 
 button.submitButton {
@@ -105,7 +118,7 @@ div.resultItem {
     text-align: left;
     left: 3%;
     height: 200px;
-    width: 70%;
+    width: 60%;
     margin-bottom: 10px;
 }
 
@@ -116,7 +129,7 @@ button.returnButton {
 
 h1.title {
     font-family: 'Oxygen', sans-serif;
-    font-size: 40px;
+    font-size: 70px;
     color: rgb(59, 59, 59);
 }
 
