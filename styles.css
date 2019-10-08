@@ -20,6 +20,13 @@ body.plain {
     background-color: #DCD5C2
 }
 
+/* FADE-IN */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+/*/*
+
 /* TITLE EFFECT */
 
 .bubbles {
@@ -50,6 +57,7 @@ z-index: 1;
 .buttonfx{
     color: rgb(87, 85, 85);
     outline: none;
+    border-radius: 5px;
     background: transparent;
     border: none;
     border-bottom: 4px solid #eee;
@@ -110,7 +118,7 @@ z-index: 1;
 div.title {
     display: inline-block;
     height: 100px;
-    width: 500px;
+    width: 550px;
     margin-left: -50%;
     margin-bottom: 5%;
 }
@@ -130,6 +138,43 @@ div.searchBarHolder {
     position: absolute;
     left: 7%;
     top: 50%;
+    opacity:0;
+    opacity: 1 \9; /*just in case ie*/
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:2s;
+    -moz-animation-duration:2s;
+    animation-duration:2s;
+
+    -webkit-animation-delay: .75s;
+    -moz-animation-delay: .75s;
+    animation-delay: .75s;
+}
+
+div.subTitle {
+    opacity:0;
+    opacity: 1 \9; /*just in case ie*/
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:2s;
+    -moz-animation-duration:2s;
+    animation-duration:2s;
+
+    -webkit-animation-delay: .75s;
+    -moz-animation-delay: .75s;
+    animation-delay: .75s;
 }
 
 div.filterDisplay {
@@ -173,10 +218,8 @@ div.spinner::before {
     width: 600px;
     height: 70px;
     font-size: 30px;
-    border-top: none;
-    border-left: none;
-    border-right: solid 1px gray;
-    border-bottom: solid 1px gray;
+    border: solid 1px gray;
+    border-radius: 5px;
     text-align: right;
     box-shadow: 2.5px 5px rgba(0, 0, 0, 0.25);
     background-color: transparent;
@@ -259,7 +302,20 @@ div.resultItem {
     margin-top: 10px;
     background-color: #c2dcda;
     box-shadow: 0 0 4px #000;
-    transition: width .1s;
+    transition: width  .75s;
+    opacity:0;
+    opacity: 1 \9; /*just in case ie*/
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:2s;
+    -moz-animation-duration:2s;
+    animation-duration:2s;
 }
 
 div.resultItem:hover {
@@ -309,7 +365,8 @@ h2 {
 }
 
 h2.appDescription {
-    margin-top: 8%
+    margin-top: 8%;
+    font-size: 16px;
 }
 
 h2.reference {
