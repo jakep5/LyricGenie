@@ -15,6 +15,11 @@ body {
     background-attachment: fixed;
 }
 
+body.plain {
+    background-image: none;
+    background-color: #DCD5C2
+}
+
 /* SUBMIT BUTTON */
 .buttonfx{
     color: rgb(87, 85, 85);
@@ -89,6 +94,7 @@ div.wrapper {
     text-align: center;
     position: relative;
     overflow: auto;
+    top: -5%;
 }
 
 div.searchBarHolder {
@@ -214,7 +220,8 @@ div.resultsHolder {
     height: 100%;
     width: 80%;
     left: 10%;
-    background-color: rgb(182, 180, 180);
+    margin-top: 10%;
+    background-color: #DCD5C2;
     box-shadow: 3px 3px 3px 3px;
     overflow: auto;
 }
@@ -225,16 +232,40 @@ div.resultHolderBlock {
 
 div.resultItem {
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     width: 80%;
-    border: 2px solid grey;
+    margin-top: 10px;
+    background-color: #c2dcda;
+    box-shadow: 0 0 4px #000;
+    transition: width .5s;
+}
+
+div.resultItem:hover {
+    width: 88%;
 }
 
 button.returnButton {
-    padding: 20px 40px;
-    margin-left: -85%;
+    padding: 20px 150px;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    position: relative;
 }
 
+a.youTube {
+    display: inline-block;
+    color: red;
+    height: 30px;
+    width: 30px;
+}
+
+i.fa-youtube-square:before {
+    height: 30px;
+    width: 30px;
+}
+
+a.youTube:visited {
+    color: red;
+}
 h1.title {
     font-family: 'Oxygen', sans-serif;
     font-size: 70px;
@@ -256,4 +287,14 @@ h2 {
     font-size: 13px;
     color: rgb(80, 80, 80);
     font-family: 'Source Sans Pro', sans-serif;
+}
+
+h2.refernece {
+    font-size: 25px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h2.songSnippet {
+    margin-left: 5px;
+    margin-right: 5px;
 }

@@ -16,6 +16,7 @@ function watchSubmit (){
     $("form").submit(function(e) {
         e.preventDefault();
         const snippet = $("#songLyric").val();
+        $("div.wrapper").delay(1000).append(`<h2 class="reference">Showing results for: ${snippet}</h2>`);
         getLyrics(snippet);
     }
     )};
@@ -37,6 +38,7 @@ function watchReturnButton() {
         $("div.resultsHolder").toggleClass('hidden');
         $("div.searchBarHolder").toggleClass('hidden');
         $("div.title").toggleClass('hidden');
+        $('body').toggleClass('plain');
     })
 }
 //
@@ -140,18 +142,19 @@ function generateResults(lyricObject, snippetArray, linkArray) {
     $("div.resultsHolder").empty();
     $("div.searchBarHolder").toggleClass("hidden");
     $("div.title").toggleClass("hidden");
+    $('body').toggleClass('plain');
     for (let i = 0; i<(lyricObject.result).length;i++) {
         if (linkArray[i] !== 'undefined') {
-            $("div.resultsHolder").append(`
+            $("div.wrapper").append(`
                 <div class="resultItem">
                     <h1 class="songTitleHeader">${lyricObject.result[i].full_title}</h1>
-                    <a href=${linkArray[i]} target="_blank">YouTube</a>
+                    <a href=${linkArray[i]} target="_blank" class="youTube"><i class="fab fa-youtube-square"></i></a>
                     <h2 class="songSnippet">"...${snippetArray[i]}..."</h2>
                 </div>
             `)
         }
         else {
-            $("div.resultsHolder").append(`
+            $("div.wrapper").append(`
                 <div class="resultItem">
                     <h1 class="songTitleHeader">${lyricObject.result[i].full_title}</h1>
                     <p class="youtubeAlt">YouTube video not found</p>
