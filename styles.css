@@ -280,21 +280,11 @@ button.returnButton {
     background: #C2DCDA;
  }
 
-a.youTube {
-    display: inline-block;
-    color: red;
-    height: 30px;
-    width: 30px;
+img.youTubeImage {
+    height: 40px;
+    width: 40px;
 }
 
-i.fa-youtube-square:before {
-    height: 30px;
-    width: 30px;
-}
-
-a.youTube:visited {
-    color: red;
-}
 h1.title {
     font-family: 'Oxygen', sans-serif;
     font-size: 80px;
