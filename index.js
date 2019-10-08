@@ -133,7 +133,6 @@ function generateResults(lyricObject, snippetArray, linkArray, snippet) {
     $("div.resultsHolder").toggleClass("hidden");
     $("div.resultsHolder").toggleClass("resultsHolderBlock");
     $("button.returnButton").toggleClass("hidden");
-    $("div.resultsHolder").empty();
     $("div.searchBarHolder").toggleClass("hidden");
     $("div.title").toggleClass("hidden");
     $("div.resultsHolder").append(`

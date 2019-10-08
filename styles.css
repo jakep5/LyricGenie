@@ -5,6 +5,7 @@
 html, body {
     height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -127,7 +128,6 @@ div.wrapper {
     width: 100%;
     text-align: center;
     position: relative;
-    overflow: auto;
     top: -5%;
 }
 
@@ -158,6 +158,8 @@ div.searchBarHolder {
 }
 
 div.subTitle {
+    position: relative;
+    width: 550px;
     opacity:0;
     opacity: 1 \9; /*just in case ie*/
     -webkit-animation:fadeIn ease-in 1;
@@ -175,6 +177,7 @@ div.subTitle {
     -webkit-animation-delay: .75s;
     -moz-animation-delay: .75s;
     animation-delay: .75s;
+    left:5%;
 }
 
 div.filterDisplay {
@@ -302,7 +305,7 @@ div.resultItem {
     margin-top: 10px;
     background-color: #c2dcda;
     box-shadow: 0 0 4px #000;
-    transition: width  .75s;
+    transition: width  .25s;
     opacity:0;
     opacity: 1 \9; /*just in case ie*/
     -webkit-animation:fadeIn ease-in 1;
@@ -324,7 +327,7 @@ div.resultItem:hover {
 
 button.returnButton {
     padding: 20px 150px;
-    margin-top: 3%;
+    margin-top: 5%;
     position: relative;
     left: 0%;
 }
@@ -379,7 +382,7 @@ h2.songSnippet {
     margin-right: 5px;
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 960px) and (min-width: 560px) {
     body {
         background-color: #DCD5C2;
         background-image: none;
@@ -393,11 +396,61 @@ h2.songSnippet {
         display: inline-block;
         position: relative;
         top: 15%;
-        left: -8%;
+        left: 0%;
     }
 
     div.title {
         display: inline-block;
         margin-left: 0%;
+    }
+    div.subTitle {
+        left:0%;
+    }
+
+    #songLyric {
+        width: 400px;
+        font-size: 20px;
+    }
+
+    .buttonfx {
+        left: 0%;
+        padding: 14px 60px;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    body {
+        background-color: #DCD5C2;
+        background-image: none;
+    }
+
+    div.wrapper {
+        text-align: center;
+    }
+
+    div.searchBarHolder {
+        display: inline-block;
+        position: relative;
+        top: 15%;
+        left: 0%;
+    }
+
+    div.title {
+        display: inline-block;
+        margin-left: 0%;
+    }
+    div.subTitle {
+        left:0%;
+        width: 400px;
+    }
+
+    #songLyric {
+        width: 400px;
+        font-size: 20px;
+    }
+
+    .buttonfx {
+        left: 0%;
+        padding: 14px 60px;
     }
 }
