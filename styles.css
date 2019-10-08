@@ -15,6 +15,62 @@ body {
     background-attachment: fixed;
 }
 
+/* SUBMIT BUTTON */
+.buttonfx{
+    color: rgb(87, 85, 85);
+    outline: none;
+    background: transparent;
+    border: none;
+    border-bottom: 4px solid #eee;
+    letter-spacing: 0.0625em;
+    padding: 14px 26px; 
+    text-transform: uppercase;
+    font: bold 16px 'Bitter', sans-serif;
+    line-height: 2;
+    position: relative;
+      display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+      text-decoration: none; 
+    overflow: hidden;
+    transition: all .5s;
+    left: 60%;
+    margin-top: 3%;
+  }
+
+.buttonfx:before,
+.buttonfx:after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  background: #259f6c; /* onhover background color */
+  z-index: -1;
+  transform: translate3D(0,-100%,0); /* move elements above button so they don't appear initially */
+  transition: all .5s;
+}
+
+.buttonfx:before{
+  background: #fafcd6; /* button default background color */
+  z-index: -2;
+  transform: translate3D(0,0,0);
+}
+
+.buttonfx:hover{
+	color: white;
+}
+
+.buttonfx:hover:after{
+  transform: translate3D(0,0,0);
+  transition: all .5s;
+}
+
+/*/*/
+
 /* SEARCH BAR */ 
 
 
@@ -25,12 +81,14 @@ div.title {
     height: 100px;
     width: 500px;
     margin-left: -50%;
+    margin-bottom: 5%;
 }
 div.wrapper {
     height: 100%;
     width: 100%;
     text-align: center;
     position: relative;
+    overflow: auto;
 }
 
 div.searchBarHolder {
@@ -39,7 +97,7 @@ div.searchBarHolder {
     width: 500px;
     position: absolute;
     left: 7%;
-    top: 40%;
+    top: 50%;
 }
 
 div.filterDisplay {
@@ -51,6 +109,32 @@ div.filterDisplay {
     top: 95%;
     left: 47%;
 }
+
+div.loadingHolder {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: grey;
+}
+
+div.spinner {
+    height: 100vh;  
+    position: relative;
+}
+    
+div.spinner::before {
+        border: solid 3px #eee;
+        border-bottom-color: #EF6565;
+        border-radius: 50%;
+        content: "";
+        height: 40px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        width: 40px;
+}
+
 
 
 #songLyric {
@@ -76,13 +160,30 @@ div.filterDisplay {
     padding-right: 5px;
 }
 
-button.submitButton {
-    padding: 20px 40px;
-    margin-top: 10px;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 18px;
-    margin-left: 93%;
-}
+.curtaindown{
+    border: 1px solid rgb(138, 137, 137);
+    border-bottom: 1px solid rgb(138, 137, 137);
+  }
+  
+  .curtaindown:before,
+  .curtaindown:after{
+    background: #A1CFC5;
+    transform: translate3D(0,-100%,0);
+  }
+  
+  .curtaindown:after{
+    transform: translate3D(0,100%,0);
+  }
+  
+  .curtaindown:hover:before,
+  .curtaindown:hover:after{
+    transform: translate3D(0,-50%,0);
+    transition: all .5s;
+  }
+  
+  .curtaindown:hover:after{
+    transform: translate3D(0,50%,0);
+  }
 
 button.filterButton {
     padding: 20px 40px;
@@ -109,17 +210,24 @@ ul.filtersList {
 /* RESULTS PAGE */
 div.resultsHolder {
     position:relative;
-    top: 10%;
+    text-align: center;
     height: 100%;
-    width: 100%;
+    width: 80%;
+    left: 10%;
+    background-color: rgb(182, 180, 180);
+    box-shadow: 3px 3px 3px 3px;
+    overflow: auto;
+}
+
+div.resultHolderBlock {
+    display: block;
 }
 
 div.resultItem {
-    text-align: left;
-    left: 3%;
-    height: 200px;
-    width: 60%;
+    display: inline-block;
     margin-bottom: 10px;
+    width: 80%;
+    border: 2px solid grey;
 }
 
 button.returnButton {
@@ -131,10 +239,17 @@ h1.title {
     font-family: 'Oxygen', sans-serif;
     font-size: 70px;
     color: rgb(59, 59, 59);
+    text-shadow: 1px 1px 1px #ccc;
 }
 
 h1.songTitleHeader {
     font-family: 'Oxygen', sans-serif;
+}
+
+p.homepagePointer {
+    font-size: 13px;
+    color: rgb(80, 80, 80);
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 h2 {

@@ -33,6 +33,7 @@ function watchReturnButton() {
     $("div.wrapper").on('click','button.returnButton', function(){
         $("div.resultsHolder").empty();
         $('button.returnButton').toggleClass('hidden');
+        $('button.returnButton').toggleClass('resultsHolderBlock');
         $("div.resultsHolder").toggleClass('hidden');
         $("div.searchBarHolder").toggleClass('hidden');
         $("div.title").toggleClass('hidden');
@@ -106,38 +107,58 @@ function createLyricsSnippet(lyricObject, snippet) {
             snippetArray.push((lyricObject.result[i].lyrics).substr(leftLimit + 1, rightLimit)) // return match
         }
     }
-    generateResults(lyricObject, snippetArray);
+    generateLinks(lyricObject, snippetArray);
 }
     
 
-/* function generateLinks (lyricObject, snippetArray) {
+function generateLinks (lyricObject, snippetArray) {
     console.log(lyricObject)
+    let linkArray = [];
     for (let i=0; i<(lyricObject.result).length; i++) {
-        let indexLink = ((lyricObject.result[i].media).indexOf('youtube.com') - 11);
-        (lyricObject.result[i].media).splice
+        let indexLink = ((lyricObject.result[i].media).indexOf('watch?') );
+        if (indexLink !== -1) {
+            let spliceArray = (lyricObject.result[i].media).slice(indexLink-26, indexLink+19);
+            /* linkArray.push(spliceArray); */
+            linkArray.push(spliceArray);
+        }
+        else {
+            linkArray.push('undefined');
+        }
     }
-} */
+    generateResults(lyricObject, snippetArray, linkArray);
+}
 
 
 
 /* MANIPULATE DOM */
-function generateResults(lyricObject, snippetArray) {
+function generateResults(lyricObject, snippetArray, linkArray) {
     console.log(snippetArray);
     console.log(lyricObject);
     $("div.resultsHolder").toggleClass("hidden");
+    $("div.resultsHolder").toggleClass("resultsHolderBlock");
     $("button.returnButton").toggleClass("hidden");
     $("div.resultsHolder").empty();
     $("div.searchBarHolder").toggleClass("hidden");
     $("div.title").toggleClass("hidden");
     for (let i = 0; i<(lyricObject.result).length;i++) {
-        $("div.resultsHolder").append(`
-            <div class="resultItem">
-                <h1 class="songTitleHeader">Song title: ${lyricObject.result[i].full_title}</h1>
-                <a href=${lyricObject.result[i].media[1].url}>YouTube</a>
-                <h2 class="songSnippet">"...${snippetArray[i]}..."</h2>
-            </div>
-        `)
-        console.log(Object.keys(lyricObject.result[i].media[1]));
+        if (linkArray[i] !== 'undefined') {
+            $("div.resultsHolder").append(`
+                <div class="resultItem">
+                    <h1 class="songTitleHeader">${lyricObject.result[i].full_title}</h1>
+                    <a href=${linkArray[i]} target="_blank">YouTube</a>
+                    <h2 class="songSnippet">"...${snippetArray[i]}..."</h2>
+                </div>
+            `)
+        }
+        else {
+            $("div.resultsHolder").append(`
+                <div class="resultItem">
+                    <h1 class="songTitleHeader">${lyricObject.result[i].full_title}</h1>
+                    <p class="youtubeAlt">YouTube video not found</p>
+                    <h2 class="songSnippet">"...${snippetArray[i]}..."</h2>
+                </div>
+            `)
+        }
     }
 };
 
