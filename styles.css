@@ -20,6 +20,32 @@ body.plain {
     background-color: #DCD5C2
 }
 
+/* TITLE EFFECT */
+
+.bubbles {
+display: inline-block;
+font-family: arial;
+position: relative;
+}
+
+.bubbles h1 {
+position: relative;
+margin: 1em 0 0;
+font-family: 'Luckiest Guy', cursive;
+color: #fff;
+z-index: 2;
+}
+
+.individual-bubble {
+position: absolute;
+border-radius: 100%;
+bottom: 10px;
+background-color: #fff;
+z-index: 1;
+}
+
+/*/*/
+
 /* SUBMIT BUTTON */
 .buttonfx{
     color: rgb(87, 85, 85);
@@ -218,11 +244,7 @@ div.resultsHolder {
     position:relative;
     text-align: center;
     height: 100%;
-    width: 80%;
-    left: 10%;
-    margin-top: 10%;
-    background-color: #DCD5C2;
-    box-shadow: 3px 3px 3px 3px;
+    width: 100%;
     overflow: auto;
 }
 
@@ -237,7 +259,7 @@ div.resultItem {
     margin-top: 10px;
     background-color: #c2dcda;
     box-shadow: 0 0 4px #000;
-    transition: width .5s;
+    transition: width .1s;
 }
 
 div.resultItem:hover {
@@ -246,10 +268,17 @@ div.resultItem:hover {
 
 button.returnButton {
     padding: 20px 150px;
-    margin-top: 2%;
-    margin-bottom: 5%;
+    margin-top: 3%;
     position: relative;
+    left: 0%;
 }
+ button.returnButton::after {
+    background: #C2DCDA;
+ }
+
+ button.returnButton::before {
+    background: #C2DCDA;
+ }
 
 a.youTube {
     display: inline-block;
@@ -268,7 +297,7 @@ a.youTube:visited {
 }
 h1.title {
     font-family: 'Oxygen', sans-serif;
-    font-size: 70px;
+    font-size: 80px;
     color: rgb(59, 59, 59);
     text-shadow: 1px 1px 1px #ccc;
 }
@@ -289,7 +318,11 @@ h2 {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-h2.refernece {
+h2.appDescription {
+    margin-top: 8%
+}
+
+h2.reference {
     font-size: 25px;
     font-family: 'Source Sans Pro', sans-serif;
 }

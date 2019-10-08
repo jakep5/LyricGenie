@@ -4,6 +4,7 @@ const baseUrlAudd = 'https://api.audd.io/findLyrics/'
 const youtubeKey = 'AIAIzaSyDc6rGhs8xLlq7WcgU3eTae0i-bT5kJRxs'
 
 
+
 /* EVENT LISTENERS */
 /* function watchButton () {
     $("button.submitButton").on('click', function() {
@@ -16,19 +17,10 @@ function watchSubmit (){
     $("form").submit(function(e) {
         e.preventDefault();
         const snippet = $("#songLyric").val();
-        $("div.wrapper").delay(1000).append(`<h2 class="reference">Showing results for: ${snippet}</h2>`);
         getLyrics(snippet);
     }
     )};
 
-function watchFilter () {
-    $("button.filterButton").on('click', function(){
-        $("div.filterDisplay").toggleClass("hidden");
-    });
-}
-
-function watchFilterSelect() {
-}
 
 function watchReturnButton() {
     $("div.wrapper").on('click','button.returnButton', function(){
@@ -81,6 +73,7 @@ function getLyrics(snippet) {
 
 /* CREATE LYRIC SNIPPET */
 function createLyricsSnippet(lyricObject, snippet) {
+    console.log(lyricObject);
     const snippetArray = [];
     for (let i = 0; i<(lyricObject.result).length;i++) {
         index = (lyricObject.result[i].lyrics).indexOf(snippet)
@@ -109,11 +102,12 @@ function createLyricsSnippet(lyricObject, snippet) {
             snippetArray.push((lyricObject.result[i].lyrics).substr(leftLimit + 1, rightLimit)) // return match
         }
     }
-    generateLinks(lyricObject, snippetArray);
+    console.log(snippetArray);
+    generateLinks(lyricObject, snippetArray, snippet);
 }
     
 
-function generateLinks (lyricObject, snippetArray) {
+function generateLinks (lyricObject, snippetArray, snippet) {
     console.log(lyricObject)
     let linkArray = [];
     for (let i=0; i<(lyricObject.result).length; i++) {
@@ -127,13 +121,13 @@ function generateLinks (lyricObject, snippetArray) {
             linkArray.push('undefined');
         }
     }
-    generateResults(lyricObject, snippetArray, linkArray);
+    generateResults(lyricObject, snippetArray, linkArray, snippet);
 }
 
 
 
 /* MANIPULATE DOM */
-function generateResults(lyricObject, snippetArray, linkArray) {
+function generateResults(lyricObject, snippetArray, linkArray, snippet) {
     console.log(snippetArray);
     console.log(lyricObject);
     $("div.resultsHolder").toggleClass("hidden");
@@ -142,10 +136,13 @@ function generateResults(lyricObject, snippetArray, linkArray) {
     $("div.resultsHolder").empty();
     $("div.searchBarHolder").toggleClass("hidden");
     $("div.title").toggleClass("hidden");
+    $("div.resultsHolder").append(`
+        <h2 class="reference" role="searchTermHolder">Showing results for: "${snippet}"</h2>
+        `)
     $('body').toggleClass('plain');
     for (let i = 0; i<(lyricObject.result).length;i++) {
         if (linkArray[i] !== 'undefined') {
-            $("div.wrapper").append(`
+            $("div.resultsHolder").append(`
                 <div class="resultItem">
                     <h1 class="songTitleHeader">${lyricObject.result[i].full_title}</h1>
                     <a href=${linkArray[i]} target="_blank" class="youTube"><i class="fab fa-youtube-square"></i></a>
@@ -154,7 +151,7 @@ function generateResults(lyricObject, snippetArray, linkArray) {
             `)
         }
         else {
-            $("div.wrapper").append(`
+            $("div.resultsHolder").append(`
                 <div class="resultItem">
                     <h1 class="songTitleHeader">${lyricObject.result[i].full_title}</h1>
                     <p class="youtubeAlt">YouTube video not found</p>
@@ -165,12 +162,53 @@ function generateResults(lyricObject, snippetArray, linkArray) {
     }
 };
 
+/* BUBBLE EFFECT */
+jQuery(document).ready(function($){
+ 
+    // Define a blank array for the effect positions. This will be populated based on width of the title.
+    var bArray = [];
+    // Define a size array, this will be used to vary bubble sizes
+    var sArray = [4,6,8,10];
+ 
+    // Push the header width values to bArray
+    for (var i = 0; i < $('.bubbles').width(); i++) {
+        bArray.push(i);
+    }
+     
+    // Function to select random array element
+    // Used within the setInterval a few times
+    function randomValue(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
+ 
+    // setInterval function used to create new bubble every 350 milliseconds
+    setInterval(function(){
+         
+        // Get a random size, defined as variable so it can be used for both width and height
+        var size = randomValue(sArray);
+        // New bubble appeneded to div with it's size and left position being set inline
+        // Left value is set through getting a random value from bArray
+        $('.bubbles').append('<div class="individual-bubble" style="left: ' + randomValue(bArray) + 'px; width: ' + size + 'px; height:' + size + 'px;"></div>');
+         
+        // Animate each bubble to the top (bottom 100%) and reduce opacity as it moves
+        // Callback function used to remove finsihed animations from the page
+        $('.individual-bubble').animate({
+            'bottom': '100%',
+            'opacity' : '-=0.7'
+        }, 3000, function(){
+            $(this).remove()
+        }
+        );
+ 
+ 
+    }, 350);
+ 
+});
 
+/*/*/
 
 $(function () {
     watchSubmit();
-    watchFilter();
-    watchFilterSelect();
     watchReturnButton();
     console.log('Ready! Waiting for submit.');
 }); 

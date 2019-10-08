@@ -6,13 +6,19 @@
         <script src="index.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Oxygen|Source+Sans+Pro&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/686c08d9d0.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
 
 
     </head>
     <body>
         <div class="wrapper" role="homescreenWrapper">
             <div class="title" role="titleHolder">
-                <h1 class="title">LyricGenie</h1>
+                <div class="center-inner">
+                    <div class="bubbles">
+                        <h1 class="title">LyricGenie</h1>
+                    </div>
+                </div>
                 <h2 class="appDescription">Have a lyric stuck in your head? Let LyricGenie help you find what song it is from:</h2>
                 <p class="homepagePointer">(Tip: help LyricGenie pinpoint your lyric by adding proper punctuation and capitalization!)</p>
             </div>
@@ -21,16 +27,10 @@
                     <input id="songLyric" type="text" placeholder="song lyric snippet..." required></label>
                 </form>
                 <button type="submit" class="buttonfx curtaindown" form="lyricForm">Submit</button>            
-                <div class="filterDisplay hidden" role="holdFilter">
-                <ul class="filtersList">
-                    <li class="filter" id="filter1"><input class="checkbox" type="checkbox"> checkbox 1</li>
-                    <li class="filter" id="filter2"><input class="checkbox" type="checkbox"> checkbox 2</li>
-                    <li class="filter" id="filter3"><input class="checkbox" type="checkbox"> checkbox 3</li>
-                    <li class="filter" id="filter4"><input class="checkbox" type="checkbox"> checkbox 4</li>
-                </ul>
-            </div>
             </div>
             <button class="returnButton hidden buttonfx curtaindown">Return to search</button>
+            <div class="resultsHolder hidden" role="resultsHolder">
+            </div>
         </div>
     </body>
 </html>
