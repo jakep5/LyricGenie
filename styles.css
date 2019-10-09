@@ -442,6 +442,7 @@ h2.songSnippet {
     div.subTitle {
         left:0%;
         width: 400px;
+        display: inline-block;
     }
 
     #songLyric {
