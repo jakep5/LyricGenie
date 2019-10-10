@@ -129,6 +129,7 @@ div.wrapper {
     text-align: center;
     position: relative;
     top: -5%;
+    overflow: auto;
 }
 
 div.searchBarHolder {
@@ -272,11 +273,11 @@ button.filterButton {
 }
 
 div.hidden {
-    display: none;
+    display: none !important;
 }
 
 button.hidden {
-    display: none;
+    display: none !important;
 }
 
 ul.filtersList {
@@ -327,7 +328,7 @@ div.resultItem:hover {
 
 button.returnButton {
     padding: 20px 150px;
-    margin-top: 5%;
+    margin-top: 6%;
     position: relative;
     left: 0%;
 }
@@ -353,6 +354,8 @@ h1.title {
 
 h1.songTitleHeader {
     font-family: 'Oxygen', sans-serif;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 p.homepagePointer {
@@ -378,8 +381,8 @@ h2.reference {
 }
 
 h2.songSnippet {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 @media only screen and (max-width: 960px) and (min-width: 560px) {
@@ -390,13 +393,14 @@ h2.songSnippet {
 
     div.wrapper {
         text-align: center;
+        overflow: auto;
     }
 
     div.searchBarHolder {
-        display: inline-block;
+        display: block;
         position: relative;
-        top: 15%;
-        left: 0%;
+        top: 25%;
+        left: 17%;
     }
 
     div.title {
@@ -404,17 +408,27 @@ h2.songSnippet {
         margin-left: 0%;
     }
     div.subTitle {
-        left:0%;
+        left:14%;
+        top: 10%;
+    }
+
+    h2.appDescription {
+        font-size: 22px;
+    }
+
+    p.homepagePointer {
+        font-size: 16px;
     }
 
     #songLyric {
-        width: 400px;
+        width: 500px;
         font-size: 20px;
     }
 
     .buttonfx {
-        left: 0%;
-        padding: 14px 60px;
+        left: 3%;
+        margin-top: 5%;
+        padding: 14px 80px;
     }
 }
 
@@ -426,32 +440,59 @@ h2.songSnippet {
 
     div.wrapper {
         text-align: center;
+        left: -1%;
+        overflow: auto;
     }
 
     div.searchBarHolder {
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        width: 90%;
+        top: 30%;
+        left: 0%;
+    }
+
+    div.title {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        top: 5%;
+        margin-left: 0%;
+    }
+
+    h1.title {
+        font-size: 70px;
+    }
+
+    h1.songTitleHeader {
+        font-size: 20px;
+    }
+
+    div.subTitle {
+        width: 85%;
         display: inline-block;
         position: relative;
         top: 15%;
         left: 0%;
     }
 
-    div.title {
-        display: inline-block;
-        margin-left: 0%;
-    }
-    div.subTitle {
-        left:0%;
-        width: 400px;
-        display: inline-block;
-    }
-
     #songLyric {
-        width: 400px;
+        width: 300px;
         font-size: 20px;
+        display: inline-block;
+        position:relative;
+        left: 0%;
     }
 
     .buttonfx {
-        left: 0%;
         padding: 14px 60px;
+        margin-right: 0px;
+        right: 0%;
+        left: 0%;
+    }
+
+    button.returnButton {
+        padding: 15px 45px;
     }
 }

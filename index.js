@@ -26,9 +26,11 @@ function watchReturnButton() {
     $("div.wrapper").on('click','button.returnButton', function(){
         $("div.resultsHolder").empty();
         $('button.returnButton').toggleClass('hidden');
-        $('button.returnButton').toggleClass('resultsHolderBlock');
         $("div.resultsHolder").toggleClass('hidden');
         $("div.searchBarHolder").toggleClass('hidden');
+        $("div.subTitle").toggleClass("hidden");
+        $("div.center-inner").toggleClass("hidden");
+        $("div.bubbles").toggleClass("hidden");
         $("div.title").toggleClass('hidden');
         $('body').toggleClass('plain');
     })
@@ -134,6 +136,9 @@ function generateResults(lyricObject, snippetArray, linkArray, snippet) {
     $("div.resultsHolder").toggleClass("resultsHolderBlock");
     $("button.returnButton").toggleClass("hidden");
     $("div.searchBarHolder").toggleClass("hidden");
+    $("div.subTitle").toggleClass("hidden");
+    $("div.center-inner").toggleClass("hidden");
+    $("div.bubbles").toggleClass("hidden");
     $("div.title").toggleClass("hidden");
     $("div.resultsHolder").append(`
         <h2 class="reference" role="searchTermHolder">Showing results for: "${snippet}"</h2>
@@ -202,3 +207,4 @@ $(function () {
     watchReturnButton();
     console.log('Ready! Waiting for submit.');
 }); 
+
