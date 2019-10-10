@@ -264,13 +264,6 @@ div.spinner::before {
     transform: translate3D(0,50%,0);
   }
 
-button.filterButton {
-    padding: 20px 40px;
-    margin-top: 10px;
-    margin-left: 250px;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 18px;
-}
 
 div.hidden {
     display: none !important;
@@ -397,10 +390,10 @@ h2.songSnippet {
     }
 
     div.searchBarHolder {
-        display: block;
+        display: inline-block;
         position: relative;
         top: 25%;
-        left: 17%;
+        left: 0%;
     }
 
     div.title {
@@ -408,8 +401,9 @@ h2.songSnippet {
         margin-left: 0%;
     }
     div.subTitle {
-        left:14%;
+        left:0%;
         top: 10%;
+        display: inline-block;
     }
 
     h2.appDescription {
@@ -423,6 +417,10 @@ h2.songSnippet {
     #songLyric {
         width: 500px;
         font-size: 20px;
+    }
+
+    button.returnButton {
+        margin-top: 10%;
     }
 
     .buttonfx {
