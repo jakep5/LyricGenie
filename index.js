@@ -44,7 +44,6 @@ function getLyrics(snippet) {
     }
     const queryString = constUrl(params);
     const url = baseUrlAudd + '?' + queryString + '&return=spotify';
-    console.log(url);
     fetch (url)
         .then (response => {
             if (response.ok) {
@@ -64,42 +63,42 @@ function getLyrics(snippet) {
 
 /* CREATE LYRIC SNIPPET */
 function createLyricsSnippet(lyricObject, snippet) {
-    console.log(lyricObject);
     const snippetArray = [];
     for (let i = 0; i<(lyricObject.result).length;i++) {
         index = (lyricObject.result[i].lyrics).indexOf(snippet)
         if(index >= 0)
-        {
-            var _ws = [" ","\t"]
-
-            var whitespace = 0
-            var rightLimit = 0
-            var leftLimit = 0
-
-            // right trim index
-            for(rightLimit = index + snippet.length; whitespace < -2; rightLimit++)//Sets right parameter to trim lyric snippet
             {
-                if(rightLimit >= (lyricObject.result[i].lyrics).length){break}
-                if(_ws.indexOf((lyricObject.result[i].lyrics).charAt(rightLimit)) >= 0){whitespace += 1}
-            }
+                var _ws = [" ","\t"]
 
-            whitespace = 0
-            // left trim index
-            for(leftLimit = index; whitespace < 6; leftLimit--)//Sets left parameter to trim lyric snippet
-            {
-                if(leftLimit < 0){break}
-                if(_ws.indexOf((lyricObject.result[i].lyrics).charAt(leftLimit)) >= 0){whitespace += 1}
+                var whitespace = 0
+                var rightLimit = 0
+                var leftLimit = 0
+
+                // right trim index
+                for(rightLimit = index + snippet.length; whitespace < -2; rightLimit++)//Sets right parameter to trim lyric snippet
+                {
+                    if(rightLimit >= (lyricObject.result[i].lyrics).length){break}
+                    if(_ws.indexOf((lyricObject.result[i].lyrics).charAt(rightLimit)) >= 0){whitespace += 1}
+                }
+
+                whitespace = 0
+                // left trim index
+                for(leftLimit = index; whitespace < 6; leftLimit--)//Sets left parameter to trim lyric snippet
+                {
+                    if(leftLimit < 0){break}
+                    if(_ws.indexOf((lyricObject.result[i].lyrics).charAt(leftLimit)) >= 0){whitespace += 1}
+                }
+                snippetArray.push((lyricObject.result[i].lyrics).substr(leftLimit + 1, rightLimit)) // returns match as a lyric snippet
             }
-            snippetArray.push((lyricObject.result[i].lyrics).substr(leftLimit + 1, rightLimit)) // returns match as a lyric snippet
+        else {
+            snippetArray.push('undefined');
         }
     }
-    console.log(snippetArray);
     generateLinks(lyricObject, snippetArray, snippet);
 }
     
 
 function generateLinks (lyricObject, snippetArray, snippet) {
-    console.log(lyricObject)
     let linkArray = [];
     for (let i=0; i<(lyricObject.result).length; i++) {
         let indexLink = ((lyricObject.result[i].media).indexOf('watch?') );
@@ -118,8 +117,6 @@ function generateLinks (lyricObject, snippetArray, snippet) {
 
 /* MANIPULATE DOM */
 function generateResults(lyricObject, snippetArray, linkArray, snippet) {
-    console.log(snippetArray);
-    console.log(lyricObject);
     $("div.resultsHolder").toggleClass("hidden");
     $("div.resultsHolder").toggleClass("resultsHolderBlock");
     $("button.returnButton").toggleClass("hidden");
@@ -132,8 +129,9 @@ function generateResults(lyricObject, snippetArray, linkArray, snippet) {
         <h2 class="reference" role="searchTermHolder">Showing results for: "${snippet}"</h2>
         `)
     $('body').toggleClass('plain');
+    console.log(snippetArray);
     for (let i = 0; i<(lyricObject.result).length;i++) {
-        if (linkArray[i] !== 'undefined') { //checks if lyric snippet was located or not, updates DOM accordingly
+        if (snippetArray[i] !== 'undefined') { //checks if lyric snippet was located or not, updates DOM accordingly
             $("div.resultsHolder").append(`
                 <div class="resultItem">
                     <h1 class="songTitleHeader">${lyricObject.result[i].full_title}</h1>
@@ -146,8 +144,8 @@ function generateResults(lyricObject, snippetArray, linkArray, snippet) {
             $("div.resultsHolder").append(`
                 <div class="resultItem">
                     <h1 class="songTitleHeader">${lyricObject.result[i].full_title}</h1>
-                    <p class="youtubeAlt">YouTube video not found</p>
-                    <h2 class="songSnippet">"...${snippetArray[i]}..."</h2>
+                    <a href=${linkArray[i]} target="_blank" class="youTube"><img src="https://www.freepnglogos.com/uploads/youtube-vector-logo-png-9.png" class="youTubeImage" alt="YouTube Link"></a>
+                    <h2 class="songSnippet">Lyrics not found</h2>
                 </div>
             `)
         }
