@@ -3,6 +3,7 @@
 Live App: jakep5.github.io/LyricGenie/
 
 
+![image](https://user-images.githubusercontent.com/53489910/66585452-74bb8900-eb4c-11e9-971e-fdebd7974052.png)
 
 
 Summary:
