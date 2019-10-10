@@ -1,4 +1,4 @@
-# LyricGenie
+## LyricGenie
 
 # Link to Live App
 jakep5.github.io/LyricGenie/
