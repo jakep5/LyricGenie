@@ -120,7 +120,7 @@ div.title {
     display: inline-block;
     height: 100px;
     width: 550px;
-    margin-left: -50%;
+    margin-left: -55%;
     margin-bottom: 5%;
 }
 div.wrapper {
@@ -178,7 +178,7 @@ div.subTitle {
     -webkit-animation-delay: .75s;
     -moz-animation-delay: .75s;
     animation-delay: .75s;
-    left:5%;
+    left:8%;
 }
 
 div.filterDisplay {
