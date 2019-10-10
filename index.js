@@ -15,14 +15,14 @@ function watchSubmit (){
 function watchReturnButton() {
     $("div.wrapper").on('click','button.returnButton', function(){
         $("div.resultsHolder").empty();
-        $('button.returnButton').toggleClass('hidden');
-        $("div.resultsHolder").toggleClass('hidden');
-        $("div.searchBarHolder").toggleClass('hidden');
+        $('button.returnButton').toggleClass("hidden");
+        $("div.resultsHolder").toggleClass("hidden");
+        $("div.searchBarHolder").toggleClass("hidden");
         $("div.subTitle").toggleClass("hidden");
         $("div.center-inner").toggleClass("hidden");
         $("div.bubbles").toggleClass("hidden");
-        $("div.title").toggleClass('hidden');
-        $('body').toggleClass('plain');
+        $("div.title").toggleClass("hidden");
+        $("body").toggleClass("plain");
     })
 }
 //
@@ -57,7 +57,7 @@ function getLyrics(snippet) {
             })
         .then (lyricObject => createLyricsSnippet(lyricObject, snippet))
         .catch(err => {
-            $('#js-error-message').text(`Something went wrong: ${err.message}`);
+            $("#js-error-message").text(`Something went wrong: ${err.message}`);
         })
 };
 
@@ -172,12 +172,12 @@ jQuery(document).ready(function($){
          
         var size = randomValue(sArray);
     
-        $('.bubbles').append('<div class="individual-bubble" style="left: ' + randomValue(bArray) + 'px; width: ' + size + 'px; height:' + size + 'px;"></div>');
+        $(".bubbles").append("<div class='individual-bubble' style='left: ' + randomValue(bArray) + 'px; width: ' + size + 'px; height:' + size + 'px;'></div>");
          
         
-        $('.individual-bubble').animate({
-            'bottom': '100%',
-            'opacity' : '-=0.7'
+        $(".individual-bubble").animate({
+            "bottom": "100%",
+            "opacity" : "-=0.7"
         }, 3000, function(){
             $(this).remove()
         }
