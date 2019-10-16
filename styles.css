@@ -326,7 +326,7 @@ img.youTubeImage {
         display: inline-block;
         height: 100px;
         width: 550px;
-        margin-left: -60%;
+        margin-left: -50%;
         margin-bottom: 5%;
     }
     div.wrapper {
@@ -339,7 +339,7 @@ img.youTubeImage {
         display: block;
         width: 500px;
         position: absolute;
-        left: 7%;
+        left: 11%;
         top: 50%;
         opacity:0;
         opacity: 1 \9; /*just in case ie*/
@@ -380,7 +380,7 @@ img.youTubeImage {
         -webkit-animation-delay: .75s;
         -moz-animation-delay: .75s;
         animation-delay: .75s;
-        left:-27%;
+        margin-left: -45%;
         margin-top: 0%;
     }
 
@@ -427,7 +427,7 @@ img.youTubeImage {
     div.searchBarHolder {
         display: inline-block;
         position: relative;
-        margin-top: 12%;
+        margin-top: 7%;
         left: 0%;
     }
 
@@ -437,7 +437,7 @@ img.youTubeImage {
     }
     div.subTitle {
         left: 0%;
-        margin-top: 10%;
+        margin-top: 4%;
         width: 550px;
         display: inline-block;
         position: relative;
