@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>LyricGenie - Find that song!</title>  
         <link rel="stylesheet" href="styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <meta name="viewport" content="width=device-width">
@@ -11,26 +12,34 @@
     </head>
     <body>
         <div class="wrapper" role="homescreenWrapper">
-            <div class="title" role="titleHolder">
-                <div class="center-inner">
-                    <div class="bubbles">
-                        <h1 class="title">LyricGenie</h1>
+            <section class="titleContainer">
+                <div class="title" role="titleHolder">
+                    <div class="center-inner">
+                        <div class="bubbles">
+                            <h1 class="title">LyricGenie</h1>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="subTitle" role="subTitleHolder">
-                <h2 class="appDescription">Have a lyric stuck in your head? Let LyricGenie help you find what song it is from:</h2>
-                <p class="homepagePointer">(Tip: help LyricGenie pinpoint your lyric by adding proper punctuation and capitalization!)</p>
-            </div>
-            <div class="searchBarHolder" role="searchBarHolder">
-                <form id="lyricForm" autocomplete="off">
-                    <input id="songLyric" type="text" placeholder="song lyric snippet..." required></label>
-                </form>
-                <button type="submit" class="buttonfx curtaindown" form="lyricForm">Search</button>            
-            </div>
+            </section>
+            <section class="subTitleContainer">
+                <div class="subTitle" role="subTitleHolder">
+                    <h2 class="appDescription">Have a lyric stuck in your head? Let LyricGenie help you find what song it is from:</h2>
+                    <p class="homepagePointer">(Tip: help LyricGenie pinpoint your lyric by adding proper punctuation and capitalization!)</p>
+                </div>
+            </section>
+            <section class="searchBarContainer">
+                <div class="searchBarHolder" role="searchBarHolder">
+                    <form id="lyricForm" autocomplete="off">
+                        <input id="songLyric" type="text" placeholder="song lyric snippet..." required>
+                    </form>
+                    <button type="submit" class="buttonfx curtaindown" form="lyricForm">Search</button>            
+                </div>
+            </section>
             <button class="returnButton hidden buttonfx curtaindown">Return to search</button>
-            <div class="resultsHolder hidden" role="resultsHolder">
-            </div>
+            <section class="resultsDisplay">
+                <div class="resultsHolder hidden" role="resultsHolder">
+                </div>
+            </section>
         </div>
     </body>
 </html>

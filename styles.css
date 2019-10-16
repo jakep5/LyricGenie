@@ -8,14 +8,6 @@ html, body {
     overflow: hidden;
 }
 
-body {
-    background-image: url("https://user-images.githubusercontent.com/53489910/66153915-ec992900-e60b-11e9-9726-a309a35319dd.jpg");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
 body.plain {
     background-image: none;
     background-color: #DCD5C2
@@ -111,155 +103,47 @@ body.plain {
 
 /*/*/
 
-
-/* HOMEPAGE */
-
-div.title {
-    display: inline-block;
-    height: 100px;
-    width: 550px;
-    margin-left: -55%;
-    margin-bottom: 5%;
+/* MOBILE */
+body {
+    background-color: #DCD5C2;
+    background-image: none;
 }
+
 div.wrapper {
     height: 100%;
     width: 100%;
     text-align: center;
+    left: -1%;
     position: relative;
-    top: -5%;
     overflow: auto;
 }
 
 div.searchBarHolder {
-    display: block;
     height: 150px;
-    width: 500px;
-    position: absolute;
-    left: 7%;
-    top: 50%;
-    opacity:0;
-    opacity: 1 \9; /*just in case ie*/
-    -webkit-animation:fadeIn ease-in 1;
-    -moz-animation:fadeIn ease-in 1;
-    animation:fadeIn ease-in 1;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    width: 90%;
+    margin-top: 15%;
+    left: 0%;
+}
 
-    -webkit-animation-fill-mode:forwards;
-    -moz-animation-fill-mode:forwards;
-    animation-fill-mode:forwards;
-
-    -webkit-animation-duration:2s;
-    -moz-animation-duration:2s;
-    animation-duration:2s;
-
-    -webkit-animation-delay: .75s;
-    -moz-animation-delay: .75s;
-    animation-delay: .75s;
+div.title {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    top: 5%;
+    margin-left: 0%;
 }
 
 div.subTitle {
+    width: 85%;
+    display: inline-block;
     position: relative;
-    width: 550px;
-    opacity:0;
-    opacity: 1 \9; /*just in case ie*/
-    -webkit-animation:fadeIn ease-in 1;
-    -moz-animation:fadeIn ease-in 1;
-    animation:fadeIn ease-in 1;
-
-    -webkit-animation-fill-mode:forwards;
-    -moz-animation-fill-mode:forwards;
-    animation-fill-mode:forwards;
-
-    -webkit-animation-duration:2s;
-    -moz-animation-duration:2s;
-    animation-duration:2s;
-
-    -webkit-animation-delay: .75s;
-    -moz-animation-delay: .75s;
-    animation-delay: .75s;
-    left:8%;
+    margin-top: 15%;
+    left: 0%;
 }
 
-h2.appDescription {
-    margin-top: 8%;
-    font-size: 16px;
-}
-
-h1.title {
-    font-family: 'Oxygen', sans-serif;
-    font-size: 80px;
-    color: rgb(59, 59, 59);
-    text-shadow: 1px 1px 1px #ccc;
-}
-
-p.homepagePointer {
-    font-size: 13px;
-    color: rgb(80, 80, 80);
-    font-family: 'Source Sans Pro', sans-serif;
-}
-
-
-#songLyric {
-    width: 600px;
-    height: 70px;
-    font-size: 30px;
-    border: solid 1px gray;
-    border-radius: 5px;
-    text-align: right;
-    box-shadow: 2.5px 5px rgba(0, 0, 0, 0.25);
-    background-color: transparent;
-    font-family: 'Source Sans Pro', sans-serif;
-    color: rgb(87, 85, 85);
-    outline-width: 0;
-    padding-right: 5px;
-
-}
-
-#songLyric::placeholder {
-    text-align: right;
-    padding-right: 5px;
-}
-
-.curtaindown{
-    border: 1px solid rgb(138, 137, 137);
-    border-bottom: 1px solid rgb(138, 137, 137);
-  }
-  
-  .curtaindown:before,
-  .curtaindown:after{
-    background: #A1CFC5;
-    transform: translate3D(0,-100%,0);
-  }
-  
-  .curtaindown:after{
-    transform: translate3D(0,100%,0);
-  }
-  
-  .curtaindown:hover:before,
-  .curtaindown:hover:after{
-    transform: translate3D(0,-50%,0);
-    transition: all .5s;
-  }
-  
-  .curtaindown:hover:after{
-    transform: translate3D(0,50%,0);
-  }
-
-
-div.hidden {
-    display: none !important;
-}
-
-button.hidden {
-    display: none !important;
-}
-
-ul.filtersList {
-    margin: 0;
-    list-style: none;
-    float: left;
-}
-
-/* RESULTS PAGE */
 div.resultsHolder {
     position:relative;
     text-align: center;
@@ -299,26 +183,15 @@ div.resultItem:hover {
     width: 88%;
 }
 
-button.returnButton {
-    padding: 20px 150px;
-    margin-top: 6%;
-    position: relative;
-    left: 0%;
-}
- button.returnButton::after {
-    background: #C2DCDA;
- }
-
- button.returnButton::before {
-    background: #C2DCDA;
- }
-
-img.youTubeImage {
-    height: 40px;
-    width: 40px;
+h1.title {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 70px;
+    color: rgb(59, 59, 59);
+    text-shadow: 1px 1px 1px #ccc;
 }
 
 h1.songTitleHeader {
+    font-size: 20px;
     font-family: 'Oxygen', sans-serif;
     margin-left: 5px;
     margin-right: 5px;
@@ -335,13 +208,212 @@ h2.reference {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+h2.appDescription {
+    margin-top: 8%;
+    font-size: 16px;
+}
+
 h2.songSnippet {
     margin-left: 10px;
     margin-right: 10px;
 }
 
+p.homepagePointer {
+    font-size: 13px;
+    color: rgb(80, 80, 80);
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+div.hidden {
+    display: none !important;
+}
+
+button.hidden {
+    display: none !important;
+}
+
+#songLyric {
+    width: 300px;
+    height: 70px;
+    font-size: 20px;
+    display: inline-block;
+    position:relative;
+    left: 0%;
+    border: solid 1px gray;
+    border-radius: 5px;
+    text-align: right;
+    box-shadow: 2.5px 5px rgba(0, 0, 0, 0.25);
+    background-color: transparent;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: rgb(87, 85, 85);
+    outline-width: 0;
+    padding-right: 5px;
+}
+
+#songLyric::placeholder {
+    text-align: right;
+    padding-right: 5px;
+}
+
+.curtaindown{
+    border: 1px solid rgb(138, 137, 137);
+    border-bottom: 1px solid rgb(138, 137, 137);
+}
+
+.curtaindown:before,
+.curtaindown:after{
+    background: #A1CFC5;
+    transform: translate3D(0,-100%,0);
+}
+
+.curtaindown:after{
+    transform: translate3D(0,100%,0);
+}
+
+.curtaindown:hover:before,
+.curtaindown:hover:after{
+    transform: translate3D(0,-50%,0);
+    transition: all .5s;
+}
+
+.curtaindown:hover:after{
+    transform: translate3D(0,50%,0);
+}
+
+.buttonfx {
+    padding: 14px 60px;
+    margin-right: 0px;
+    right: 0%;
+    left: 0%;
+}
+
+button.returnButton {
+    padding: 15px 45px;
+    margin-top: 15%;
+    position: relative;
+    left: 0%;
+}
+
+button.returnButton::after {
+    background: #C2DCDA;
+}
+
+button.returnButton::before {
+    background: #C2DCDA;
+}
+
+img.youTubeImage {
+    height: 40px;
+    width: 40px;
+}
+/*/*
+
+
+/* DESKTOP/LARGER SCREENS */
+
+@media only screen and (min-width: 960px) {
+
+    body {
+        background-image: url("https://user-images.githubusercontent.com/53489910/66153915-ec992900-e60b-11e9-9726-a309a35319dd.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    div.title {
+        display: inline-block;
+        height: 100px;
+        width: 550px;
+        margin-left: -60%;
+        margin-bottom: 5%;
+    }
+    div.wrapper {
+        text-align: center;
+        top: -5%;
+        overflow: auto;
+    }
+
+    div.searchBarHolder {
+        display: block;
+        width: 500px;
+        position: absolute;
+        left: 7%;
+        top: 50%;
+        opacity:0;
+        opacity: 1 \9; /*just in case ie*/
+        -webkit-animation:fadeIn ease-in 1;
+        -moz-animation:fadeIn ease-in 1;
+        animation:fadeIn ease-in 1;
+
+        -webkit-animation-fill-mode:forwards;
+        -moz-animation-fill-mode:forwards;
+        animation-fill-mode:forwards;
+
+        -webkit-animation-duration:2s;
+        -moz-animation-duration:2s;
+        animation-duration:2s;
+
+        -webkit-animation-delay: .75s;
+        -moz-animation-delay: .75s;
+        animation-delay: .75s;
+        margin-top: 0%;
+    }
+
+    div.subTitle {
+        width: 550px;
+        opacity:0;
+        opacity: 1 \9; /*just in case ie*/
+        -webkit-animation:fadeIn ease-in 1;
+        -moz-animation:fadeIn ease-in 1;
+        animation:fadeIn ease-in 1;
+
+        -webkit-animation-fill-mode:forwards;
+        -moz-animation-fill-mode:forwards;
+        animation-fill-mode:forwards;
+
+        -webkit-animation-duration:2s;
+        -moz-animation-duration:2s;
+        animation-duration:2s;
+
+        -webkit-animation-delay: .75s;
+        -moz-animation-delay: .75s;
+        animation-delay: .75s;
+        left:-27%;
+        margin-top: 0%;
+    }
+
+    h1.title {
+        font-size: 80px;
+    }
+
+    #songLyric {
+        width: 600px;
+        font-size: 30px;
+    }
+
+    .buttonfx {
+        left: 60%;
+        display: inline-block;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        left: 60%;
+        margin-top: 3%;
+        padding: 14px 26px;
+    }
+
+    button.returnButton {
+        padding: 20px 150px;
+        margin-top: 6%;
+    }
+}
+/*/*
+
+
 /* TABLETS/MID-SIZE */
 @media only screen and (max-width: 960px) and (min-width: 560px) {
+    
     body {
         background-color: #DCD5C2;
         background-image: none;
@@ -355,7 +427,7 @@ h2.songSnippet {
     div.searchBarHolder {
         display: inline-block;
         position: relative;
-        top: 25%;
+        margin-top: 12%;
         left: 0%;
     }
 
@@ -364,9 +436,11 @@ h2.songSnippet {
         margin-left: 0%;
     }
     div.subTitle {
-        left:0%;
-        top: 10%;
+        left: 0%;
+        margin-top: 10%;
+        width: 550px;
         display: inline-block;
+        position: relative;
     }
 
     h2.appDescription {
@@ -395,70 +469,3 @@ h2.songSnippet {
 /*/*/
 
 
-/* MOBILE/SMALL SCREENS */
-@media only screen and (max-width: 560px) {
-    body {
-        background-color: #DCD5C2;
-        background-image: none;
-    }
-
-    div.wrapper {
-        text-align: center;
-        left: -1%;
-        overflow: auto;
-    }
-
-    div.searchBarHolder {
-        display: inline-block;
-        position: relative;
-        text-align: center;
-        width: 90%;
-        top: 30%;
-        left: 0%;
-    }
-
-    div.title {
-        display: inline-block;
-        position: relative;
-        width: 100%;
-        top: 5%;
-        margin-left: 0%;
-    }
-
-    h1.title {
-        font-size: 70px;
-    }
-
-    h1.songTitleHeader {
-        font-size: 20px;
-    }
-
-    div.subTitle {
-        width: 85%;
-        display: inline-block;
-        position: relative;
-        top: 15%;
-        left: 0%;
-    }
-
-    #songLyric {
-        width: 300px;
-        font-size: 20px;
-        display: inline-block;
-        position:relative;
-        left: 0%;
-    }
-
-    .buttonfx {
-        padding: 14px 60px;
-        margin-right: 0px;
-        right: 0%;
-        left: 0%;
-    }
-
-    button.returnButton {
-        padding: 15px 45px;
-        margin-top: 15%;
-    }
-}
-/*/*/

@@ -129,32 +129,54 @@ function generateResults(lyricObject, snippetArray, linkArray, snippet) {
         <h2 class="reference" role="searchTermHolder">Showing results for: "${snippet}"</h2>
         `)
     $('body').toggleClass('plain');
+    console.log(linkArray);
     console.log(snippetArray);
     for (let i = 0; i<(lyricObject.result).length;i++) {
         if (snippetArray[i] !== 'undefined') { //checks if lyric snippet was located or not, updates DOM accordingly
-            $("div.resultsHolder").append(`
-                <div class="resultItem">
-                    <h1 class="songTitleHeader">${lyricObject.result[i].full_title}</h1>
-                    <a href=${linkArray[i]} target="_blank" class="youTube"><img src="https://www.freepnglogos.com/uploads/youtube-vector-logo-png-9.png" class="youTubeImage" alt="YouTube Link"></a>
-                    <h2 class="songSnippet">"...${snippetArray[i]}..."</h2>
-                </div>
-            `)
+            if (linkArray[i] !== 'undefined') { 
+                $("div.resultsHolder").append(`
+                    <div class="resultItem">
+                        <h1 class="songTitleHeader">${lyricObject.result[i].full_title}</h1>
+                        <a href=${linkArray[i]} target="_blank" class="youTube"><img src="https://www.freepnglogos.com/uploads/youtube-vector-logo-png-9.png" class="youTubeImage" alt="YouTube Link"></a>
+                        <h2 class="songSnippet">"...${snippetArray[i]}..."</h2>
+                    </div>
+                `)
+            }
+            else {
+                $("div.resultsHolder").append(`
+                    <div class="resultItem">
+                        <h1 class="songTitleHeader">${lyricObject.result[i].full_title}</h1>
+                        <p class="homepagePointer">YouTube video not found</p>
+                        <h2 class="songSnippet">Lyrics not found</h2>
+                    </div>
+                `)
+            }
         }
         else {
-            $("div.resultsHolder").append(`
-                <div class="resultItem">
-                    <h1 class="songTitleHeader">${lyricObject.result[i].full_title}</h1>
-                    <a href=${linkArray[i]} target="_blank" class="youTube"><img src="https://www.freepnglogos.com/uploads/youtube-vector-logo-png-9.png" class="youTubeImage" alt="YouTube Link"></a>
-                    <h2 class="songSnippet">Lyrics not found</h2>
-                </div>
-            `)
+            if (linkArray[i] !== 'undefined') { 
+                $("div.resultsHolder").append(`
+                    <div class="resultItem">
+                        <h1 class="songTitleHeader">${lyricObject.result[i].full_title}</h1>
+                        <a href=${linkArray[i]} target="_blank" class="youTube"><img src="https://www.freepnglogos.com/uploads/youtube-vector-logo-png-9.png" class="youTubeImage" alt="YouTube Link"></a>
+                        <h2 class="songSnippet">Lyrics not found</h2>
+                    </div>
+                `)
+            }
+            else {
+                $("div.resultsHolder").append(`
+                    <div class="resultItem">
+                        <h1 class="songTitleHeader">${lyricObject.result[i].full_title}</h1>
+                        <p class="homepagePointer">YouTube video not found</p>
+                        <h2 class="songSnippet">Lyrics not found</h2>
+                    </div>
+                `)
+            }
         }
     }
 };
 
 /* BUBBLE EFFECT FOR TITLE */
 jQuery(document).ready(function($){
- 
     var bArray = [];
     var sArray = [4,6,8,10];
  
