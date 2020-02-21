@@ -129,8 +129,7 @@ function generateResults(lyricObject, snippetArray, linkArray, snippet) {
         <h2 class="reference" role="searchTermHolder">Showing results for: "${snippet}"</h2>
         `)
     $('body').toggleClass('plain');
-    console.log(linkArray);
-    console.log(snippetArray);
+
     for (let i = 0; i<(lyricObject.result).length;i++) {
         if (snippetArray[i] !== 'undefined') { //checks if lyric snippet was located or not, updates DOM accordingly
             if (linkArray[i] !== 'undefined') { 
@@ -213,6 +212,5 @@ jQuery(document).ready(function($){
 $(function () {
     watchSubmit();
     watchReturnButton();
-    console.log('Ready! Waiting for submit.');
 }); 
 
